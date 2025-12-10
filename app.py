@@ -8,7 +8,7 @@ st.markdown("""
     <style>
     /* Main Background */
     .stApp {
-        background-color: #FFFFFF;
+        background-color: #000000;
         color: #FFFFFF;
     }
     /* Headers (Electric Blue) */
