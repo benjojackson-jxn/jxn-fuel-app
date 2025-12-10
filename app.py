@@ -42,7 +42,7 @@ st.markdown("""
 
 # --- HEADER ---
 st.title("⚡ JXN PERFORMANCE FUEL")
-st.write("Calculate nutrition needs specifically for the **growing rural athlete**.")
+st.write("Calculate nutrition needs specifically for the **growing athlete**.")
 st.markdown("---")
 
 # --- INPUT SECTION ---
@@ -57,9 +57,9 @@ with col2:
     # UPDATED: Sport Specific Logic
     activity_profile = st.selectbox("Select Your Sport Context", 
         [
-            "🏐 Volleyball / Baseball / Skill Sport (Moderate Output)", 
-            "🏒 Hockey / Basketball / Soccer (High Output)",
-            "🏃‍♂️ Endurance / Tournament Weekend (Extreme Output)"
+            "🏐 Standard (Volleyball/Skill)", 
+            "🏒 High (Hockey/Basketball)",
+            "🏃‍♂️ Extreme (Endurance/Comp)"
         ])
     
     goal = st.radio("Primary Goal", ["Performance/Maintenance", "Gain Size/Growth Spurt"])
