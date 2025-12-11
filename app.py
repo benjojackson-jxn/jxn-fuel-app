@@ -8,7 +8,7 @@ st.markdown("""
     <style>
     /* Main Background */
     .stApp {
-        background-color: #838383;
+        background-color: #777676;
         color: #FFFFFF;
     }
     /* Headers (Electric Blue) */
@@ -57,9 +57,9 @@ with col2:
     # UPDATED: Sport Specific Logic
     activity_profile = st.selectbox("Select Your Sport Context", 
         [
-            "🏐 Standard (Volleyball/Skill)", 
+            "🏐 Moderate (Volleyball/Skill)", 
             "🏒 High (Hockey/Basketball)",
-            "🏃‍♂️ Extreme (Endurance/Comp)"
+            "🏃‍♂️ Extreme (Endurance/Competition)"
         ])
     
     goal = st.radio("Primary Goal", ["Performance/Maintenance", "Gain Size/Growth Spurt"])
