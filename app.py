@@ -83,12 +83,12 @@ with col1:
     weight_lbs = st.number_input("Weight (lbs)", min_value=70, max_value=350, value=145)
 
 with col2:
-    # UPDATED: Sport Specific Logic
-    activity_profile = st.selectbox("Select Your Sport Context", 
+    # UPDATED: Labels based on Weekly Load / Schedule
+    activity_profile = st.selectbox("Select Weekly Workload", 
         [
-            "🏐 Moderate (Volleyball/Skill)", 
-            "🏒 High (Hockey/Basketball)",
-            "🏃‍♂️ Extreme (Endurance/Compete Weekend)"
+            "LEVEL 1: Standard (3-4x/week | Volleyball/Skill)", 
+            "LEVEL 2: Heavy (5-6x/week | Hockey/Contact/Running)",
+            "LEVEL 3: Peak (Tournament Weekend | Two-a-Days)"
         ])
     
     goal = st.radio("Primary Goal", ["Performance/Maintenance", "Gain Size/Growth Spurt"])
@@ -98,28 +98,34 @@ with col2:
 # 1. Convert Weight
 weight_kg = weight_lbs / 2.20462
 
-# 2. Base Metabolic Rate (Schofield Equation for Teens 10-18y)
+# 2. Base Metabolic Rate (Schofield Equation)
 if sex == "Male":
     bmr = (17.686 * weight_kg) + 658.2
 else:
     bmr = (13.384 * weight_kg) + 692.6
 
-# 3. Sport Multipliers (Tuned for Teen Athletes)
-if "Volleyball" in activity_profile:
-    multiplier = 1.7
-    note = "Standard athletic load. Enough to jump, not enough to feel heavy."
-elif "Hockey" in activity_profile:
+# 3. Load Multipliers (Tuned for Safety & Accuracy)
+if "LEVEL 1" in activity_profile:
+    # Standard Practice days. 
+    multiplier = 1.65
+    note = "Standard Load. Good for practice days or skill sports (Volleyball/Baseball)."
+
+elif "LEVEL 2" in activity_profile:
+    # This is the "Sweet Spot" for your Hockey players and Runners.
     multiplier = 1.9
-    note = "High output. Covers the demands of contact, cold rinks, and constant running."
+    note = "High Load. Use this for Hockey season, heavy lifting blocks, or distance running."
+
 else:
-    multiplier = 2.2 
-    note = "Extreme output. For distance runners or 3-game tournament days."
+    # LEVEL 3 (Peak)
+    # Lowered slightly to 2.1 to prevent massive over-estimation.
+    multiplier = 2.1 
+    note = "Peak Load. ONLY use this for 3-game tournament weekends or double-day camps."
 
 tdee = bmr * multiplier
 
 # 4. The Growth Surplus
-if goal == "Gain Size/Growth Spurt":
-    tdee += 400 # Direct calorie surplus
+if "Gain Size" in goal:
+    tdee += 400
 
 # 5. Macro Split (High Performance Bias)
 # 50% Carbs (Fuel) / 25% Protein (Repair) / 25% Fat (Hormones)
