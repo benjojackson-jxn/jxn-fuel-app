@@ -6,14 +6,14 @@ st.set_page_config(page_title="JXN Fuel Calculator", page_icon="⚡")
 # --- CUSTOM BRANDING (Electric Blue & Black) ---
 st.markdown("""
     <style>
-    /* Main Background - Set to Pitch Black for best contrast */
+    /* Main Background */
     .stApp {
         background-color: #000000;
         color: #FFFFFF;
     }
     
-    /* Text Visibility Fix - Forces all standard text to White */
-    p, label, .stMarkdown, .stRadio div, .stSelectbox div {
+    /* Text Visibility - Forces all standard text to White */
+    p, label, .stMarkdown {
         color: #FFFFFF !important;
     }
 
@@ -35,10 +35,29 @@ st.markdown("""
         color: white;
     }
 
-    /* Input Fields (Number Input, etc) Background */
-    .stNumberInput input {
-        background-color: #1E1E1E;
-        color: white;
+    /* --- FORCE INPUTS TO DARK MODE (The Fix) --- */
+    
+    /* 1. The Select Box (Dropdown) & Text Inputs */
+    div[data-baseweb="select"] > div, div[data-baseweb="input"] > div {
+        background-color: #1E1E1E !important;
+        color: white !important;
+        border-color: #444444 !important;
+    }
+    
+    /* 2. The Text INSIDE the Select Box */
+    div[data-baseweb="select"] span {
+        color: white !important;
+    }
+
+    /* 3. The Number Input Box */
+    input[type="number"] {
+        color: white !important;
+        background-color: #1E1E1E !important;
+    }
+
+    /* 4. The Dropdown Menu Options (When you click it) */
+    ul[data-baseweb="menu"] {
+        background-color: #1E1E1E !important;
     }
 
     /* Info Box Styling */
@@ -49,6 +68,7 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
 # --- HEADER ---
 st.title("⚡ JXN PERFORMANCE FUEL")
 st.write("Calculate nutrition needs specifically for the **growing athlete**.")
