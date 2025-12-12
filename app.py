@@ -141,8 +141,13 @@ if st.button("CALCULATE MY NUMBERS 🚀"):
     
     # Total Calories Header
     st.subheader(f"🔥 Daily Target: {int(tdee)} Calories")
+    
+    # 1. DISPLAY THE NOTE (This is the new part)
+    st.caption(f"ℹ️ **Why this amount?** {note}")
+
+    # 2. Display Growth Buffer if selected
     if goal == "Gain Size/Growth Spurt":
-        st.caption("✅ Includes +400 calories for growth.")
+        st.write("✅ *Includes +400 calorie surplus for growth.*")
     
     # The Hand Portion Grid
     c1, c2, c3 = st.columns(3)
