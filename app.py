@@ -59,7 +59,7 @@ with col2:
         [
             "🏐 Moderate (Volleyball/Skill)", 
             "🏒 High (Hockey/Basketball)",
-            "🏃‍♂️ Extreme (Endurance/Competition Weekend)"
+            "🏃‍♂️ Extreme (Endurance/Competitive Weekend)"
         ])
     
     goal = st.radio("Primary Goal", ["Performance/Maintenance", "Gain Size/Growth Spurt"])
