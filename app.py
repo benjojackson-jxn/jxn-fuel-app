@@ -6,15 +6,22 @@ st.set_page_config(page_title="JXN Fuel Calculator", page_icon="⚡")
 # --- CUSTOM BRANDING (Electric Blue & Black) ---
 st.markdown("""
     <style>
-    /* Main Background */
+    /* Main Background - Set to Pitch Black for best contrast */
     .stApp {
-        background-color: #2c2c2c;
+        background-color: #000000;
         color: #FFFFFF;
     }
+    
+    /* Text Visibility Fix - Forces all standard text to White */
+    p, label, .stMarkdown, .stRadio div, .stSelectbox div {
+        color: #FFFFFF !important;
+    }
+
     /* Headers (Electric Blue) */
     h1, h2, h3, h4 {
         color: #009CDE !important;
     }
+
     /* Buttons */
     .stButton>button {
         background-color: #009CDE;
@@ -27,10 +34,13 @@ st.markdown("""
         background-color: #0084BD;
         color: white;
     }
-    /* Radio Buttons & Text Inputs */
-    .stRadio label, .stSelectbox label, .stNumberInput label, .stSlider label {
-        color: #FFFFFF !important;
+
+    /* Input Fields (Number Input, etc) Background */
+    .stNumberInput input {
+        background-color: #1E1E1E;
+        color: white;
     }
+
     /* Info Box Styling */
     .stInfo {
         background-color: #1E1E1E;
@@ -39,7 +49,6 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
-
 # --- HEADER ---
 st.title("⚡ JXN PERFORMANCE FUEL")
 st.write("Calculate nutrition needs specifically for the **growing athlete**.")
